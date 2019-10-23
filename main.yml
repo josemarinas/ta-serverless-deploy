@@ -1,0 +1,10 @@
+---
+- name: Compile and upload files
+  hosts: localhost
+  tasks:
+  - name: Upload HTML files
+    s3_sync:
+      bucket: ta-serverless-frontend
+      file_root: ../ta-frontend/dist/
+      file_change_strategy: force
+      permission: public-read
